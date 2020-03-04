@@ -3,6 +3,7 @@ const { join } = require("path");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const app = express();
+var port = process.env.PORT || 8080;
 
 // Serve static assets from the /public folder
 app.use(express.static(join(__dirname, "public")));
