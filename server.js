@@ -3,7 +3,6 @@ const { join } = require("path");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const app = express();
-var port = process.env.PORT || 8080;
 
 // Serve static assets from the /public folder
 app.use(express.static(join(__dirname, "public")));
@@ -18,5 +17,7 @@ app.get("/*", (_, res) => {
   res.sendFile(join(__dirname, "index.html"));
 });
 
-// Listen on port 3000
-app.listen(3000, () => console.log("Application running on port 3000"));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
